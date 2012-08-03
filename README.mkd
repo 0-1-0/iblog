@@ -1,9 +1,10 @@
-sinatra-pow-powder is just template Sinatra app works with Pow
+Just a Sinatra + Mongo + Slim Blog. Works well on heroku.
 --------------------------------------------------------------------------------------------
 
-try 
+Installation (local)
+
 ``` 
-git clone git://github.com/marutanm/sinatra-pow-powder.git
+git clone git@github.com:wishope/iblog.git
 ```
 
 [Powder](https://github.com/Rodreegez/powder) is better way to use [Pow](http://pow.cx/)
@@ -16,8 +17,9 @@ create a symblic link to ~/.pow/ and open in browser
 
 ```
 $ cd sinatra-pow-powder
-$ powder
+$ powder link
 $ powder open
 ```
 
 It works!!
+
