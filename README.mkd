@@ -16,7 +16,7 @@ $ gem install powder
 create a symblic link to ~/.pow/ and open in browser
 
 ```
-$ cd sinatra-pow-powder
+$ cd iblog
 $ powder link
 $ powder open
 ```

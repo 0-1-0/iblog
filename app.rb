@@ -7,7 +7,7 @@ get '/' do
 end
 
 
-post '/' do
+post '/mail' do
     require 'pony'
     Pony.mail(
       from: "mail@yegorov.info",
@@ -26,4 +26,23 @@ post '/' do
         :domain               => 'heroku.com'
       })
     redirect '/' 
+end
+
+
+
+#Helpers
+helpers do
+
+  def link_to(url,text=url)
+    "<a href=\"#{url}\" >#{text}</a>"
+  end
+
+  def css(name)
+    "<link rel='stylesheet' href='/#{name}.css'>"
+  end
+
+  def image(url)
+    "<img src=#{url}>"
+  end
+
 end
