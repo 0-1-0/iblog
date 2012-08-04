@@ -2,8 +2,8 @@ source "http://rubygems.org"
 
 gem 'slim'
 gem 'sinatra'
-gem 'mongoid'
-gem 'bson_ext'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
 
 group :test do
   gem 'rspec'
