@@ -1,19 +1,31 @@
 require 'sinatra'
 require 'slim'
+require 'haml'
+require "digest/sha1"
+require 'dm-core'
+require 'dm-validations'
+require 'dm-timestamps'
+require 'dm-migrations'
+require "sinatra-authentication"
 
+#for authentification
+use Rack::Session::Cookie, :secret => '3daystospace'
+
+
+################rounting##########################
 
 get '/' do
    slim :index
 end
 
-#DB setup
-require 'dm-core'
-require 'dm-validations'
-require 'dm-timestamps'
-require 'dm-migrations'
+
+##################################################
+
+
+
+###################Datamapper#####################
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://developer:123@localhost/iblog')
 
-#DM Models
 class Post
   include DataMapper::Resource
 
@@ -24,10 +36,9 @@ class Post
   
   timestamps :at
 end
-
 DataMapper.auto_upgrade!
 
-
+#################################################
 
 #Helpers
 helpers do

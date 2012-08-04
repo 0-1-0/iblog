@@ -30,7 +30,21 @@ html lang="en"
       .col.x1
         .mail
           no nickolay@yegorov.info
-      .col.x6      
+      .col.x6
+        - if current_user.admin? 
+          hr
+
+          form action='/post' method='POST'
+            table
+              tr
+                td
+                  h2 Create new post
+                td
+                  input type="submit" value="Create"
+              tr
+                td colspan=2          
+                  textarea cols='80' rows='20'
+          hr 
         - for i in 1..20
           .row
             .col.x8
