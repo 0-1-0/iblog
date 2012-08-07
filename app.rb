@@ -51,6 +51,13 @@ post '/:id/comment' do |id|
   redirect '/'
 end
 
+
+get '/rss' do
+  @posts = Post.all(:order => [ :id.desc ], :limit => 20)
+  content_type 'application/rss+xml'
+  slim :rss
+end
+
 ##################################################
 
 
