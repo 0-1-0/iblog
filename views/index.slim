@@ -34,7 +34,7 @@ html lang="en"
             a target="blank" href="http://ru.linkedin.com/pub/nickolay-yegorov/24/a45/a93"
               .social-button L
 
-          - if current_user.admin? 
+          - if current_user.site_admin?
             a#show-newpost.plusminus href="#" Create new post [+]
             .newpost
               form action='/' method='post' accept-charset="utf-8"                      
@@ -50,7 +50,7 @@ html lang="en"
             /.fb-like data-href="http://iblog.dev/#post#{post.id}" data-send="false" data-layout="button_count"  
             .postconent
               ==post.content
-            - if current_user.admin?
+            - if current_user.site_admin?
               br
               a.plusminus.editlink[style="float:right" href="#"] edit [+]
               a.plusminus.commentlink[ href="#"] comment [+]
@@ -66,7 +66,7 @@ html lang="en"
               - post.comments.each do |comment|
                 hr
                 =comment.content
-                hr
+              hr
 
 
               .editbody

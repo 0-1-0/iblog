@@ -1,6 +1,7 @@
 $(document).ready(function() {
    $("#show-newpost").click(function() {
       $('.header-up').toggle('slow');
+      $('.flag').toggle();
      $('.newpost').toggle('slow');
 
    });
