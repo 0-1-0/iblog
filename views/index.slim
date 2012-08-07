@@ -53,15 +53,14 @@ html lang="en"
             br
             - if current_user.site_admin?
               a.plusminus.editlink[style="float:right" href="#"] edit [+]
+              
             a.plusminus.commentlink[ href="#"] comment [+]
-
-
-              .commentbody
-                form action='/#{post.id}/comment' method='post' accept-charset="utf-8" 
-                  textarea cols='40' rows='2' name='comment[content]'
-                  input type="hidden" name='comment[post_id]' value='#{post.id}'
-                  br
-                  input type="submit"
+            .commentbody
+              form action='/#{post.id}/comment' method='post' accept-charset="utf-8" 
+                textarea cols='40' rows='2' name='comment[content]'
+                input type="hidden" name='comment[post_id]' value='#{post.id}'
+                br
+                input type="submit"
               
             - post.comments.each do |comment|
               hr
