@@ -63,10 +63,10 @@ html lang="en"
                   br
                   input type="submit"
               
-              - post.comments.each do |comment|
-                hr
-                =comment.content
+            - post.comments.each do |comment|
               hr
+              =comment.content
+            hr
 
 
               .editbody
