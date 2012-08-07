@@ -1,24 +1,23 @@
-Just a Sinatra + Mongo + Slim Blog. Works well on heroku.
+Sinatra/Postgres/Slim -powered blog. Works well on heroku.
 --------------------------------------------------------------------------------------------
 
-Installation (local)
+Installation (local):
 
 ``` 
 git clone git@github.com:wishope/iblog.git
+
+bundle install
 ```
 
-[Powder](https://github.com/Rodreegez/powder) is better way to use [Pow](http://pow.cx/)
+Set up your local postgres installation and change 'postgres://developer:123@localhost/iblog' in app.rb for appropriate string.
+Then, create a heroku app and push to it.
 
 ```
-$ gem install powder
-```
+heroku create
 
-create a symblic link to ~/.pow/ and open in browser
+push heroku master
 
-```
-$ cd iblog
-$ powder link
-$ powder open
+heroku open
 ```
 
 It works!!
