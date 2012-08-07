@@ -5,6 +5,6 @@ rss version="2.0"
     link http://yegorov.info
     - @posts.each do |post|
       item
-        title =post.content[0..100]
+        title Just posted an article
         link http://yegorov.info/#post#{post.id}
-        description =post.content
+        description =post.content[1..400]
