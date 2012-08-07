@@ -14,6 +14,13 @@
          url('RICHARD_MILLER.svg#webfont') format('svg');
 }
 
+/*body{
+  background-image: url('/bg.jpg');
+  background-attachment: fixed;
+  background-position: top left;
+
+}*/
+
 body,html{
   font-family: 'Paratype';
 }
@@ -22,8 +29,27 @@ h1,a{
   font-family: 'RICHARD_MILLER';
 }
 
+.group{
+  margin-left: 30%;
+}
+
+.header{
+  height: 150px;
+  margin-bottom: 30px;
+}
+
+.well{
+  
+  -webkit-box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+        
+        box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+          padding: 20px 20px 20px 20px;
+          margin: 20px 20px 20px -20px;
+}
+
 .postcontent{
   padding-top: 50px;
+
   
 }
 
@@ -52,7 +78,7 @@ img{
 /* Social-contact-buttons. */
 .contact{
   position: fixed;
-  right: -1px;
+  left: -1px;
   top: -75px;
   z-index: 101;
   background: white;
@@ -64,18 +90,13 @@ img{
   float:right;
 }
 
-.contact-up{
-  border: 1px solid black;
-  padding: 20px 20px 20px 20px;
-}
-
 .flag {  
-  position: fixed; 
-  right: 19px;
+  margin-top: -144px;
   z-index: 99;
-  padding-top: 120px;
+  float:right;
   padding-bottom: 30px;
   width: 0px;
+  padding-top: 50px;
   border-left: 25px solid black;
   border-right: 25px solid black;
   border-bottom: 25px solid transparent;
@@ -83,11 +104,6 @@ img{
   -webkit-webkit--transition-property: top;
   -webkit-transition-duration: 1s;
   top: -150px;
-}
-.flag:hover {
-  -webkit-transition-property: top;
-  -webkit-transition-duration: 1s;
-  top: -15px;
 }
 
 .social-button{

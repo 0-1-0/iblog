@@ -1,6 +1,8 @@
 $(document).ready(function() {
    $("#show-newpost").click(function() {
+      $('.header-up').toggle('slow');
      $('.newpost').toggle('slow');
+
    });
 
    $('.plusminus').click(function(){
@@ -16,12 +18,16 @@ $(document).ready(function() {
    });
 
    $('.newpost').hide();
-
+   $('.commentbody').hide();
    $('.editbody').hide();
 
    $('.editlink').click(function(){
       $(this).parent().find('.postconent').toggle('slow');
       $(this).parent().find('.editbody').toggle('slow');
+   });
+
+   $('.commentlink').click(function(){
+      $(this).parent().find('.commentbody').toggle('slow');
    });
 
    $('.fb-like').hide();
@@ -35,4 +41,21 @@ $(document).ready(function() {
    function(){
       $(this).find('.fb-like').hide();
    });
+
+   $(window).scroll(function(){
+      if($('.header').position().top + $('.header').height() < $(window).scrollTop()) {
+        $('.flag').css({
+          'position':'fixed',
+          'right': '50px',
+          'top': '100px'
+        });
+      }else{
+        $('.flag').css({
+          'position':'relative',
+          'top': '0px',
+          'right': '0px'
+        });
+      }
+   });
+
 });

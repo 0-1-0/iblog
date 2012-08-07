@@ -44,6 +44,13 @@ delete '/:id' do |id|
   redirect '/'
 end
 
+post '/:id/comment' do |id|
+  comment = Comment.new(params[:comment])
+  comment.post_id = id
+  comment.save
+  redirect '/'
+end
+
 ##################################################
 
 
@@ -55,7 +62,19 @@ class Post
   include DataMapper::Resource
   property :id,       Serial
   property :content,  Text   , :lazy => [ :show ]
+
+  has n, :comments
 end
+
+class Comment
+  include DataMapper::Resource
+  property :id,       Serial
+  property :content,  Text   , :lazy => [ :show ]
+  property :post_id,  Serial
+
+  belongs_to :post
+end
+
 DataMapper.auto_upgrade!
 
 #################################################

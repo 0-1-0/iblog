@@ -20,19 +20,13 @@ html lang="en"
 
 
     .row.group
-      .col.x1
-        .arrow-body
-        .arrow-down
-        .infinity
-          h1 ∞
-      .col.x6
-        h1 Nickolay Yegorov
-        h3 Design, Technology & WEB.
-      .col.x1
-        a.contact[href="#"] 
-          .contact-up Contact
-          .flag
-            
+      .col.x4.well
+        .header
+          .header-up
+            h1 Nickolay Yegorov
+            h3 Design, Technology & WEB.
+
+          .flag            
             a target="blank" href="https://www.facebook.com/nickolay.yegorov"
               .social-button F
             a target="blank" href="https://twitter.com/postskolkovo"
@@ -40,34 +34,45 @@ html lang="en"
             a target="blank" href="http://ru.linkedin.com/pub/nickolay-yegorov/24/a45/a93"
               .social-button L
 
-    
-    .row.group[style="height:100%"]
-      .col.x1
-        .mail
-          no nickolay@yegorov.info
-      .col.x6
-        - if current_user.admin? 
-          a#show-newpost.plusminus href="#" Create new post [+]
-          .newpost
-            form action='/' method='post' accept-charset="utf-8"                      
-              textarea cols='100' rows='10' name='post[content]' Content
-              br
-              input type="submit" value="Create"
-        - @posts.each do |post|
+          - if current_user.admin? 
+            a#show-newpost.plusminus href="#" Create new post [+]
+            .newpost
+              form action='/' method='post' accept-charset="utf-8"                      
+                textarea cols='40' rows='10' name='post[content]' Content
+                br
+                input type="submit" value="Create"
+
+
+    - @posts.each do |post|
+      .row.group
+        .col.x4.well
           .post[id='post#{post.id}']
-            hr
-            /.fb-like data-href="http://iblog.dev/#post#{post.id}" data-send="false" data-layout="button_count"
-            br
-            br   
+            /.fb-like data-href="http://iblog.dev/#post#{post.id}" data-send="false" data-layout="button_count"  
             .postconent
               ==post.content
             - if current_user.admin?
               br
               a.plusminus.editlink[style="float:right" href="#"] edit [+]
+              a.plusminus.commentlink[ href="#"] comment [+]
+
+
+              .commentbody
+                form action='/#{post.id}/comment' method='post' accept-charset="utf-8" 
+                  textarea cols='40' rows='2' name='comment[content]'
+                  input type="hidden" name='comment[post_id]' value='#{post.id}'
+                  br
+                  input type="submit"
+              
+              - post.comments.each do |comment|
+                hr
+                =comment.content
+                hr
+
+
               .editbody
                 form action='/#{post.id}' method='post' accept-charset="utf-8"  
                   input type="hidden" name="_method" value="put"                    
-                  textarea cols='100' rows='10' name='post[content]' ==post.content
+                  textarea cols='40' rows='10' name='post[content]' ==post.content
                   br
                   input type="submit" value="Save & update"
                 form action='/#{post.id}' method='post'
