@@ -50,10 +50,10 @@ html lang="en"
             /.fb-like data-href="http://iblog.dev/#post#{post.id}" data-send="false" data-layout="button_count"  
             .postconent
               ==post.content
+            br
             - if current_user.site_admin?
-              br
               a.plusminus.editlink[style="float:right" href="#"] edit [+]
-              a.plusminus.commentlink[ href="#"] comment [+]
+            a.plusminus.commentlink[ href="#"] comment [+]
 
 
               .commentbody
