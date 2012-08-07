@@ -3,7 +3,22 @@ html lang="en"
   head
     title Nickolay
     ==css 'style'
+    ==js  'jquery'
+    ==js  'main'
   body
+    /Facebook JS SDK
+    #fb-root
+      javascript:
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=330004890381991";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+
     .row.group
       .col.x1
         .arrow-body
@@ -32,23 +47,31 @@ html lang="en"
           no nickolay@yegorov.info
       .col.x6
         - if current_user.admin? 
-          hr
+          a#show-newpost.plusminus href="#" Create new post [+]
+          .newpost
+            form action='/' method='post' accept-charset="utf-8"                      
+              textarea cols='100' rows='10' name='post[content]' Content
+              br
+              input type="submit" value="Create"
+        - @posts.each do |post|
+          .post[id='post#{post.id}']
+            hr
+            /.fb-like data-href="http://iblog.dev/#post#{post.id}" data-send="false" data-layout="button_count"
+            br
+            br   
+            .postconent
+              ==post.content
+            - if current_user.admin?
+              br
+              a.plusminus.editlink[style="float:right" href="#"] edit [+]
+              .editbody
+                form action='/#{post.id}' method='post' accept-charset="utf-8"  
+                  input type="hidden" name="_method" value="put"                    
+                  textarea cols='100' rows='10' name='post[content]' ==post.content
+                  br
+                  input type="submit" value="Save & update"
+                form action='/#{post.id}' method='post'
+                  input type="hidden" name="_method" value="delete"
+                  input type="submit" value="Delete"
 
-          form action='/post' method='POST'
-            table
-              tr
-                td
-                  h2 Create new post
-                td
-                  input type="submit" value="Create"
-              tr
-                td colspan=2          
-                  textarea cols='80' rows='20'
-          hr 
-        - for i in 1..20
-          .row
-            .col.x8
-              h3 Header
-              .p texttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttext 
-              .p texttexttexttexttexttexttexttexttexttext
 

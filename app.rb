@@ -12,12 +12,37 @@ require "sinatra-authentication"
 use Rack::Session::Cookie, :secret => '3daystospace'
 
 
+
 ################rounting##########################
 
 get '/' do
-   slim :index
+  @posts = Post.all(:order => [ :id.desc ], :limit => 20)
+  slim :index
 end
 
+
+# get '/articles/:id/edit' do |id|
+#   @article = Article.get!(id)
+#   erb :'articles/edit'
+# end
+
+post '/' do
+  post = Post.new(params[:post])  
+  post.save
+  redirect '/'
+end
+
+put '/:id' do |id|
+  post = Post.get!(id)
+  success = post.update!(params[:post])
+  redirect '/'
+end
+
+delete '/:id' do |id|
+  post = Post.get!(id)
+  post.destroy!
+  redirect '/'
+end
 
 ##################################################
 
@@ -28,13 +53,8 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://developer:123@loca
 
 class Post
   include DataMapper::Resource
-
   property :id,       Serial
-  property :title,    String
-  property :body,     Text   , :lazy => [ :show ]
-  property :published,Boolean, :default  => false
-  
-  timestamps :at
+  property :content,  Text   , :lazy => [ :show ]
 end
 DataMapper.auto_upgrade!
 
@@ -47,8 +67,12 @@ helpers do
     "<a href=\"#{url}\" >#{text}</a>"
   end
 
-  def css(name)
-    "<link rel='stylesheet' href='/#{name}.css'>"
+  def css(url)
+    "<link rel='stylesheet' href='/#{url}.css'>"
+  end
+
+  def js(url)
+    "<script type='text/javascript' src='/#{url}.js' ></script>"
   end
 
   def image(url)
