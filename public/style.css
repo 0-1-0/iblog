@@ -29,8 +29,21 @@ h1, .plusminus{
   font-family: 'RICHARD_MILLER';
 }
 
-.group{
-  margin-left: 30%;
+.content{
+  width: 500px;
+  margin-left: auto;   
+  margin-right: auto;
+}
+
+.well{
+
+  
+
+  -webkit-box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+      
+      box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+        padding: 20px 20px 20px 20px;
+        margin: 20px 20px 20px -20px;
 }
 
 .header{
@@ -38,14 +51,6 @@ h1, .plusminus{
   margin-bottom: 30px;
 }
 
-.well{
-  
-  -webkit-box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-        
-        box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-          padding: 20px 20px 20px 20px;
-          margin: 20px 20px 20px -20px;
-}
 
 
 
@@ -153,58 +158,4 @@ img{
   -moz-transform-origin: 50% 50%;
   -webkit-transform: rotate(270deg);
   -webkit-transform-origin: 50% 50%;
-}
-
-
-
-/* Handcrafted grid system */ 
-.raw {
-  clear: both;
-  padding: 0px;
-  margin: 0px;
-} 
-
-.col {
-  display: block;
-  float:left;
-  margin: 1% 0 1% 1.6%;
-}
-
-.col:first-child { margin-left: 0; }
-
-/*  GRID OF EIGHT  */
-.x8{
-  width: 100%;
-}
-
-.x7{
-  width: 86%;
-}
-
-.x6 {
-  width: 74.6%;
-}
-.x4 {
-  width: 49.2%;
-}
-.x2 {
-  width: 23.8%;
-}
-
-.x3{
-  width: 34%
-}
-
-.x1 {
-  width: 10%;
-}
-
-/*  GROUPING  */
-.group:before,
-.group:after {
-  content:"";
-  display:table;
-}
-.group:after {
-  clear:both;
 }

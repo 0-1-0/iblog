@@ -27,8 +27,8 @@ html lang="en"
 
 
 
-    .row.group
-      .col.x4.well
+    .content
+      .well
         .header
           .header-up
             h1 Nickolay Yegorov
@@ -51,9 +51,8 @@ html lang="en"
                 input type="submit" value="Create"
 
 
-    - @posts.each do |post|
-      .row.group
-        .col.x4.well
+      - @posts.each do |post|
+        .well
           .post[id='post#{post.id}']
             /.fb-like data-href="http://iblog.dev/#post#{post.id}" data-send="false" data-layout="button_count"  
             .postcontent
