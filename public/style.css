@@ -30,7 +30,7 @@ h1, .plusminus{
 }
 
 .content{
-  width: 500px;
+  width: 600px;
   margin-left: auto;   
   margin-right: auto;
 }
@@ -159,3 +159,4 @@ img{
   -webkit-transform: rotate(270deg);
   -webkit-transform-origin: 50% 50%;
 }
+g
