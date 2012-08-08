@@ -2,6 +2,7 @@ pre{
   font-size: 10px;
   outline: 2px dashed #000000;
   outline-offset: 10px; /*Delete if you don't want an offset*/
+  margin: 20px 20px 20px 20px;
 }
 
 pre.sh_sourceCode {
