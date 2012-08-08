@@ -25,7 +25,7 @@ body,html{
   font-family: 'Paratype';
 }
 
-h1,a{
+h1, .plusminus{
   font-family: 'RICHARD_MILLER';
 }
 
@@ -56,8 +56,11 @@ h1,a{
 
 
 /* Text-decoration sucks */
-A:link, A:visited {text-decoration: none; color: black;}
-A:active, A:hover {text-decoration: none; color: black;}
+a{color: black;}
+.plusminus, .flag a{
+  text-decoration: none;
+}
+
 
 
 /*Fit images to divs */
