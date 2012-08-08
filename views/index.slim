@@ -35,7 +35,7 @@ html lang="en"
               .social-button L
 
           - if current_user.site_admin?
-            a#show-newpost.plusminus href="#" Create new post [+]
+            a#show-newpost.plusminus href="javascript:void(0)" Create new post [+]
             .newpost
               form action='/' method='post' accept-charset="utf-8"                      
                 textarea cols='40' rows='10' name='post[content]' Content
@@ -52,9 +52,9 @@ html lang="en"
               ==post.content
             br
             - if current_user.site_admin?
-              a.plusminus.editlink[style="float:right" href="#"] edit [+]
+              a.plusminus.editlink[style="float:right" href="javascript:void(0)"] edit [+]
 
-            a.plusminus.commentlink[ href="#"] comment [+]
+            a.plusminus.commentlink[ href="javascript:void(0)"] comment [+]
 
             - if current_user.site_admin?
               .editbody
