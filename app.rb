@@ -69,6 +69,9 @@ class Post
   include DataMapper::Resource
   property :id,       Serial
   property :content,  Text   , :lazy => [ :show ]
+  property :title,    String
+  property :img,      Text, :lazy => [ :show ]
+  property :img2,     Text, :lazy => [ :show ]
 
   has n, :comments
 end
@@ -76,6 +79,7 @@ end
 class Comment
   include DataMapper::Resource
   property :id,       Serial
+  property :name,     String
   property :content,  Text   , :lazy => [ :show ]
   property :post_id,  Serial
 
@@ -94,15 +98,15 @@ helpers do
   end
 
   def css(url)
-    "<link rel='stylesheet' href='/#{url}.css'>"
+    "<link rel='stylesheet' href='/css/#{url}.css'>"
   end
 
   def js(url)
-    "<script type='text/javascript' src='/#{url}.js' ></script>"
+    "<script type='text/javascript' src='/js/#{url}.js' ></script>"
   end
 
   def image(url)
-    "<img src=#{url}>"
+    "<img src=#{url} width=100% height=auto>"
   end
 
 end

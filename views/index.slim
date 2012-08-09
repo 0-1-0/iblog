@@ -4,6 +4,7 @@ html lang="en"
     title Nickolay
     ==css 'style'
     ==css 'highlight'
+    ==css 'flip'
 
     ==js  'jquery'
     ==js  'linkify'
@@ -14,41 +15,34 @@ html lang="en"
     ==js  'main'
 
   body
-    /Facebook JS SDK
-    #fb-root
-      javascript:
-        (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=330004890381991";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-
 
     .content
       .well
-        .header
-          .header-up
-            h1 Nickolay Yegorov
-            h3 Design, Technology & WEB.
+        .post
+          .header
+            .header-up
+              h1 Nickolay Yegorov
+              h3 Design, Technology & WEB.
 
-          .flag            
-            a target="blank" href="https://www.facebook.com/nickolay.yegorov"
-              .social-button F
-            a target="blank" href="https://twitter.com/postskolkovo"
-              .social-button T
-            a target="blank" href="http://ru.linkedin.com/pub/nickolay-yegorov/24/a45/a93"
-              .social-button L
-
-          - if current_user.site_admin?
-            a#show-newpost.plusminus href="javascript:void(0)" Create new post [+]
-            .newpost
-              form action='/' method='post' accept-charset="utf-8"                      
-                textarea cols='40' rows='10' name='post[content]' Content
+            - if current_user.site_admin?
+              a#show-newpost.plusminus href="javascript:void(0)" Create new post [+]
+              .newpost
                 br
-                input type="submit" value="Create"
+                form action='/' method='post' accept-charset="utf-8"
+                  input type="text" size="100" name="post[title]" placeholder="Title" 
+                  input type="text" size="100" name="post[img]" placeholder="Image url"  
+                  input type="text" size="100" name="post[img2]" placeholder="Second image url"                    
+                  textarea cols='72' rows='20' name='post[content]' placeholder="Content"
+                  br
+                  input type="submit" value="Create & save"
+
+        .flag            
+          a target="blank" href="https://www.facebook.com/nickolay.yegorov"
+            .social-button F
+          a target="blank" href="https://twitter.com/postskolkovo"
+            .social-button T
+          a target="blank" href="http://ru.linkedin.com/pub/nickolay-yegorov/24/a45/a93"
+            .social-button L
 
 
       - @posts.each do |post|
@@ -56,7 +50,21 @@ html lang="en"
           .post[id='post#{post.id}']
             /.fb-like data-href="http://iblog.dev/#post#{post.id}" data-send="false" data-layout="button_count"  
             .postcontent
-              ==post.content
+              - if post.title
+                h3==post.title
+              - if post.img              
+                section
+                  .card
+                    .back 
+                      - if post.img2
+                        ==image post.img2
+                      - else
+                        ==image post.img
+                    .front==image post.img
+
+              - if post.content
+                ==post.content
+
             br
             - if current_user.site_admin?
               a.plusminus.editlink[style="float:right" href="javascript:void(0)"] edit [+]
@@ -64,10 +72,16 @@ html lang="en"
             a.plusminus.commentlink[ href="javascript:void(0)"] comment [+]
 
             - if current_user.site_admin?
+              
+
               .editbody
                 form action='/#{post.id}' method='post' accept-charset="utf-8"  
-                  input type="hidden" name="_method" value="put"                    
-                  textarea cols='40' rows='10' name='post[content]' ==post.content
+                  input type="hidden" name="_method" value="put"
+                  br
+                  input type="text" size="100" name="post[title]" placeholder="Title"    value="#{post.title}"
+                  input type="text" size="100" name="post[img]" placeholder="Image url"  value="#{post.img}"
+                  input type="text" size="100" name="post[img2]" placeholder="Second image url"  value="#{post.img2}"                
+                  textarea cols='72' rows='20' name='post[content]' placeholder="Content" ==post.content
                   br
                   input type="submit" value="Save & update"
                 form action='/#{post.id}' method='post'
@@ -76,7 +90,10 @@ html lang="en"
                   
             .commentbody
               form action='/#{post.id}/comment' method='post' accept-charset="utf-8" 
-                textarea cols='40' rows='2' name='comment[content]'
+                br
+                input size='90' name='comment[name]' placeholder='Your name'
+                br
+                textarea cols='65' rows='3' name='comment[content]' placeholder="Yor comment"
                 input type="hidden" name='comment[post_id]' value='#{post.id}'
                 br
                 input type="submit"
