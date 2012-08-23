@@ -56,11 +56,11 @@ html lang="en"
                 section
                   .card
                     .back 
-                      - if post.img2
+                      - if post.img2.length > 8
                         ==image post.img2
                       - else
                         ==image post.img
-                    .front==image post.img
+                    .front==image post.img.length > 8
 
               - if post.content
                 ==post.content
