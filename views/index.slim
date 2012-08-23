@@ -52,15 +52,15 @@ html lang="en"
             .postcontent
               - if post.title
                 h3==post.title
-              - if post.img              
-                section
-                  .card
-                    .back 
-                      - if post.img2.length > 8
-                        ==image post.img2
-                      - else
-                        ==image post.img
-                    .front==image post.img.length > 8
+              / - if not post.img.nil?      
+              /   section
+              /     .card
+              /       .back 
+              /         - if not (post.img2.nil? or post.img2.empty?)
+              /           ==image post.img2
+              /         - else
+              /           ==image post.img
+              /       .front==image post.img
 
               - if post.content
                 ==post.content
