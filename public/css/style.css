@@ -5,6 +5,7 @@
 
 /* Typography */ 
 @font-face { font-family: Paratype; src: url('/css/PTN57F.ttf'); }
+@font-face { font-family: Lineatura; src: url('/css/lineatura.woff') format('woff'); }
 
 @font-face {
     font-family: 'RICHARD_MILLER';
