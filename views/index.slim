@@ -1,7 +1,7 @@
 doctype html
 html lang="en"
   head
-    title Nickolay
+    title =TITLE
     ==css 'style'
     ==css 'highlight'
     ==css 'flip'
@@ -21,8 +21,8 @@ html lang="en"
         .post
           .header
             .header-up
-              h1 Nickolay Yegorov
-              h3 Design, Technology & WEB.
+              h1 =HEADER
+              h3 =TITLE
 
             - if current_user.site_admin?
               a#show-newpost.plusminus href="javascript:void(0)" Create new post [+]
