@@ -74,8 +74,6 @@ class Post
   property :id,       Serial
   property :content,  Text   , :lazy => [ :show ]
   property :title,    String
-  property :img,      String, :length => 64, :lazy => [ :show ]
-  property :img2,     String, :length => 64, :lazy => [ :show ]
 
   has n, :comments
 end

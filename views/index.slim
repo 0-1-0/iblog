@@ -47,20 +47,10 @@ html lang="en"
 
       - @posts.each do |post|
         .well
-          .post[id='post#{post.id}']
-            /.fb-like data-href="http://iblog.dev/#post#{post.id}" data-send="false" data-layout="button_count"  
+          .post[id='post#{post.id}']  
             .postcontent
               - if post.title
                 h3==post.title
-              / - if not post.img.nil?      
-              /   section
-              /     .card
-              /       .back 
-              /         - if not (post.img2.nil? or post.img2.empty?)
-              /           ==image post.img2
-              /         - else
-              /           ==image post.img
-              /       .front==image post.img
 
               - if post.content
                 ==post.content
@@ -71,16 +61,13 @@ html lang="en"
 
             a.plusminus.commentlink[ href="javascript:void(0)"] comment [+]
 
-            - if current_user.site_admin?
-              
+            - if current_user.site_admin?     
 
               .editbody
                 form action='/#{post.id}' method='post' accept-charset="utf-8"  
                   input type="hidden" name="_method" value="put"
                   br
-                  input type="text" size="100" name="post[title]" placeholder="Title"    value="#{post.title}"
-                  input type="text" size="100" name="post[img]" placeholder="Image url"  value="#{post.img}"
-                  input type="text" size="100" name="post[img2]" placeholder="Second image url"  value="#{post.img2}"                
+                  input type="text" size="100" name="post[title]" placeholder="Title"    value="#{post.title}"                
                   textarea cols='72' rows='20' name='post[content]' placeholder="Content" ==post.content
                   br
                   input type="submit" value="Save & update"
