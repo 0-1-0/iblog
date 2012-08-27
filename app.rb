@@ -73,7 +73,7 @@ class Post
   include DataMapper::Resource
   property :id,       Serial
   property :content,  Text   , :lazy => [ :show ]
-  property :title,    String
+  property :title,    String, :length => 10..100
 
   has n, :comments
 end
