@@ -166,4 +166,13 @@ img{
   -webkit-transform: rotate(270deg);
   -webkit-transform-origin: 50% 50%;
 }
-g
+
+.box-shadow {
+-webkit-box-shadow: -2px -3px 5px rgba(0, 0, 0, 0.34);
+-moz-box-shadow:    -2px -3px 5px rgba(0, 0, 0, 0.34);
+box-shadow:         -2px -3px 5px rgba(0, 0, 0, 0.34);
+}
+
+#header{
+  height: 175px;
+}
