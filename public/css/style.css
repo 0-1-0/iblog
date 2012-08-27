@@ -174,5 +174,5 @@ box-shadow:         -2px -3px 5px rgba(0, 0, 0, 0.34);
 }
 
 #header{
-  height: 175px;
+  min-height: 175px;
 }

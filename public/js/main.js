@@ -63,20 +63,4 @@ $(document).ready(function() {
       $(this).find('.fb-like').hide();
    });
 
-   $(window).scroll(function(){
-      if($('.header').position().top + $('.header').height() < $(window).scrollTop()) {
-        $('.flag').css({
-          'position':'fixed',
-          'right': '50px',
-          'top': '200px'
-        });
-      }else{
-        $('.flag').css({
-          'position':'relative',
-          'top': '0px',
-          'right': '0px'
-        });
-      }
-   });
-
 });
