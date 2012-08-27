@@ -68,6 +68,7 @@ end
 
 ###################Datamapper#####################
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://developer:123@localhost/iblog')
+DataMapper::Property::String.length(255)
 
 class Post
   include DataMapper::Resource
