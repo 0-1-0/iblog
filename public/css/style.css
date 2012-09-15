@@ -179,3 +179,20 @@ box-shadow:         -2px -3px 5px rgba(0, 0, 0, 0.34);
 #header{
   min-height: 150px;
 }
+
+#login-logout{
+  position: fixed;
+  top: 10px;
+  left: 50px;
+  font-size: 100px;
+}
+
+#login-logout a{
+  color: white;
+  text-decoration: none;
+}
+
+#login-logout:hover a{
+  color: black;
+  
+}

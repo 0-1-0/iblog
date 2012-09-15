@@ -15,6 +15,11 @@ html lang="en"
     ==js  'main'
 
   body
+    #login-logout
+      - if current_user.site_admin?
+        .plusminus==link_to '/logout', 'Logout'
+      - else
+        .plusminus==link_to '/login', 'Login'
 
     .content
       .well
