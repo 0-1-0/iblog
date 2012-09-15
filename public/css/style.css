@@ -63,7 +63,7 @@ h1, .plusminus{
 
 /* Text-decoration sucks */
 a{color: black;}
-.plusminus, .flag a{
+.plusminus, #flag a{
   text-decoration: none;
 }
 
@@ -99,11 +99,11 @@ img{
   float:right;
 }
 
-.flag {  
-  margin-top: -220px;
-  margin-right: 24px;
+#flag {  
   z-index: 99;
   float:right;
+  position: relative;
+  top: -240px;
   padding-bottom: 30px;
   width: 0px;
   padding-top: 50px;
@@ -113,7 +113,7 @@ img{
 
   -webkit-webkit--transition-property: top;
   -webkit-transition-duration: 1s;
-  top: -150px;
+  
 }
 
 .social-button{
