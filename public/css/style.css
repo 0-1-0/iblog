@@ -101,9 +101,8 @@ img{
 
 #flag {  
   z-index: 99;
-  float:right;
-  position: relative;
-  top: -240px;
+  float: right;
+  margin-top: -50px;
   padding-bottom: 30px;
   width: 0px;
   padding-top: 50px;
@@ -174,5 +173,5 @@ box-shadow:         -2px -3px 5px rgba(0, 0, 0, 0.34);
 }
 
 #header{
-  min-height: 175px;
+  min-height: 150px;
 }

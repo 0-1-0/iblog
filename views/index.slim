@@ -20,27 +20,26 @@ html lang="en"
       .well
         .post
           #header
-            .header-up
-              h1 =HEADER
-              h3 =TITLE
+            #flag.box-shadow            
+              a target="blank" href="https://www.facebook.com/nickolay.yegorov"
+                .social-button F
+              a target="blank" href="https://twitter.com/postskolkovo"
+                .social-button T
+              a target="blank" href="http://ru.linkedin.com/pub/nickolay-yegorov/24/a45/a93"
+                .social-button L
+            
+            h1 =HEADER
+            h3 =TITLE
 
-            - if current_user.site_admin?
-              a#show-newpost.plusminus href="javascript:void(0)" Create new post [+]
-              .newpost
+          - if current_user.site_admin?
+            a#show-newpost.plusminus href="javascript:void(0)" Create new post [+]
+            .newpost
+              br
+              form action='/' method='post' accept-charset="utf-8"
+                input type="text" size="100" name="post[title]" placeholder="Title"                  
+                textarea cols='72' rows='20' name='post[content]' placeholder="Content"
                 br
-                form action='/' method='post' accept-charset="utf-8"
-                  input type="text" size="100" name="post[title]" placeholder="Title"                  
-                  textarea cols='72' rows='20' name='post[content]' placeholder="Content"
-                  br
-                  input type="submit" value="Create & save"
-
-        #flag.box-shadow            
-          a target="blank" href="https://www.facebook.com/nickolay.yegorov"
-            .social-button F
-          a target="blank" href="https://twitter.com/postskolkovo"
-            .social-button T
-          a target="blank" href="http://ru.linkedin.com/pub/nickolay-yegorov/24/a45/a93"
-            .social-button L
+                input type="submit" value="Create & save"
 
 
       - @posts.each do |post|
