@@ -26,7 +26,7 @@ body,html{
   font-family: 'Paratype';
 }
 
-h1, .plusminus{
+h1, .plusminus, .delete-comment{
   font-family: 'RICHARD_MILLER';
 }
 
@@ -170,6 +170,10 @@ img{
 -webkit-box-shadow: -2px -3px 5px rgba(0, 0, 0, 0.34);
 -moz-box-shadow:    -2px -3px 5px rgba(0, 0, 0, 0.34);
 box-shadow:         -2px -3px 5px rgba(0, 0, 0, 0.34);
+}
+
+.delete-comment{
+  float: right;
 }
 
 #header{

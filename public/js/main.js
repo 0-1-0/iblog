@@ -3,7 +3,7 @@
 $(document).ready(function() {
 
    $("#show-newpost").click(function() {
-      $('#header').toggle('slow');
+      $('#header').toggle();
       $('.newpost').toggle('slow');
 
    });

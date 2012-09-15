@@ -55,6 +55,12 @@ post '/:id/comment' do |id|
   redirect '/'
 end
 
+delete '/:post_id/:comment_id' do |post_id, comment_id|
+  comment = Comment.get!(comment_id, post_id)
+  comment.destroy!
+  redirect '/'
+end
+
 
 get '/rss' do
   @posts = Post.all(:order => [ :id.desc ], :limit => 20)

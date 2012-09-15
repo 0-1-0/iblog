@@ -84,6 +84,12 @@ html lang="en"
               
             - post.comments.each do |comment|
               hr
+              - if current_user.site_admin? 
+                .delete-comment
+                  form action='/#{post.id}/#{comment.id}' method='post'
+                    input type="hidden" name="_method" value="delete"
+                    input type="submit" value="x"
+
               .commentcontent=comment.content
             hr
 
