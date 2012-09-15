@@ -2,7 +2,7 @@
     -webkit-transform-style: preserve-3d;
     -webkit-perspective: 1000;
     position: relative;
-    height: 450px;
+    min-height: 40px;
     margin: 20px 0 20px 0;
 }   
 .back, .front {

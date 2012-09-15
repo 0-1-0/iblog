@@ -21,82 +21,91 @@ html lang="en"
       - else
         .plusminus==link_to '/login', 'Login'
 
-    .content
-      .well
-        .post
-          #header
-            #flag.box-shadow            
-              a target="blank" href="https://www.facebook.com/nickolay.yegorov"
-                .social-button F
-              a target="blank" href="https://twitter.com/postskolkovo"
-                .social-button T
-              a target="blank" href="http://ru.linkedin.com/pub/nickolay-yegorov/24/a45/a93"
-                .social-button L
-            
-            h1 =HEADER
-            h3 =TITLE
+    / #books.center
+    /   h1 Bookshelf
 
-          - if current_user.site_admin?
-            a#show-newpost.plusminus href="javascript:void(0)" Create new post [+]
-            .newpost
-              br
-              form action='/' method='post' accept-charset="utf-8"
-                input type="text" size="100" name="post[title]" placeholder="Title"                  
-                textarea cols='72' rows='20' name='post[content]' placeholder="Content"
-                br
-                input type="submit" value="Create & save"
-
-
-      - @posts.each do |post|
+    /   .book-cover.center
+    /     h3 title
+    /     p description
+    /   .shelf.well
+    #main-wrapper
+      .content
         .well
-          .post[id='post#{post.id}']  
-            .postcontent
-              - if post.title
-                h3==post.title
-
-              - if post.content
-                ==post.content
-
-            br
-            - if current_user.site_admin?
-              a.plusminus.editlink[style="float:right" href="javascript:void(0)"] edit [+]
-
-            a.plusminus.commentlink[ href="javascript:void(0)"] comment [+]
-
-            - if current_user.site_admin?     
-
-              .editbody
-                form action='/#{post.id}' method='post' accept-charset="utf-8"  
-                  input type="hidden" name="_method" value="put"
-                  br
-                  input type="text" size="100" name="post[title]" placeholder="Title"    value="#{post.title}"                
-                  textarea cols='72' rows='20' name='post[content]' placeholder="Content" ==post.content
-                  br
-                  input type="submit" value="Save & update"
-                form action='/#{post.id}' method='post'
-                  input type="hidden" name="_method" value="delete"
-                  input type="submit" value="Delete"
-                  
-            .commentbody
-              form action='/#{post.id}/comment' method='post' accept-charset="utf-8" 
-                br
-                input size='90' name='comment[name]' placeholder='Your name'
-                br
-                textarea cols='65' rows='3' name='comment[content]' placeholder="Yor comment"
-                input type="hidden" name='comment[post_id]' value='#{post.id}'
-                br
-                input type="submit"
+          .post
+            #header
+              #flag.box-shadow            
+                a target="blank" href="https://www.facebook.com/nickolay.yegorov"
+                  .social-button F
+                a target="blank" href="https://twitter.com/postskolkovo"
+                  .social-button T
+                a target="blank" href="http://ru.linkedin.com/pub/nickolay-yegorov/24/a45/a93"
+                  .social-button L
               
-            - post.comments.each do |comment|
-              hr
-              - if current_user.site_admin? 
-                .delete-comment
-                  form action='/#{post.id}/#{comment.id}' method='post'
-                    input type="hidden" name="_method" value="delete"
-                    input type="submit" value="x"
+              h1 =HEADER             
+              h3 =TITLE
+              
 
-              .commentcontent=comment.content
-            hr
+            - if current_user.site_admin?
+              a#show-newpost.plusminus href="javascript:void(0)" Create new post [+]
+              .newpost
+                br
+                form action='/' method='post' accept-charset="utf-8"
+                  input type="text" size="100" name="post[title]" placeholder="Title"                  
+                  textarea cols='72' rows='20' name='post[content]' placeholder="Content"
+                  br
+                  input type="submit" value="Create & save"
+
+
+        - @posts.each do |post|
+          .well
+            .post[id='post#{post.id}']  
+              .postcontent
+                - if post.title
+                  h3==post.title
+
+                - if post.content
+                  ==post.content
+
+              br
+              - if current_user.site_admin?
+                a.plusminus.editlink[style="float:right" href="javascript:void(0)"] edit [+]
+
+              a.plusminus.commentlink[ href="javascript:void(0)"] comment [+]
+
+              - if current_user.site_admin?     
+
+                .editbody
+                  form action='/#{post.id}' method='post' accept-charset="utf-8"  
+                    input type="hidden" name="_method" value="put"
+                    br
+                    input type="text" size="100" name="post[title]" placeholder="Title"    value="#{post.title}"                
+                    textarea cols='72' rows='20' name='post[content]' placeholder="Content" ==post.content
+                    br
+                    input type="submit" value="Save & update"
+                  form action='/#{post.id}' method='post'
+                    input type="hidden" name="_method" value="delete"
+                    input type="submit" value="Delete"
+                    
+              .commentbody
+                form action='/#{post.id}/comment' method='post' accept-charset="utf-8" 
+                  br
+                  input size='90' name='comment[name]' placeholder='Your name'
+                  br
+                  textarea cols='65' rows='3' name='comment[content]' placeholder="Yor comment"
+                  input type="hidden" name='comment[post_id]' value='#{post.id}'
+                  br
+                  input type="submit"
+                
+              - post.comments.each do |comment|
+                hr
+                - if current_user.site_admin? 
+                  .delete-comment
+                    form action='/#{post.id}/#{comment.id}' method='post'
+                      input type="hidden" name="_method" value="delete"
+                      input type="submit" value="x"
+
+                .commentcontent=comment.content
+              hr
 
 
 

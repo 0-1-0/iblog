@@ -13,7 +13,7 @@ use Rack::Session::Cookie, :secret => '3daystospace'
 
 #application constants
 TITLE  = 'Perspective on the world.'
-HEADER = 'Nickolay Yegorov'
+HEADER = 'Nickolay@Yegorov.info'
 
 
 

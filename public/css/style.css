@@ -30,6 +30,8 @@ h1, .plusminus, .delete-comment{
   font-family: 'RICHARD_MILLER';
 }
 
+
+
 .content{
   width: 600px;
   margin-left: auto;   
@@ -38,6 +40,12 @@ h1, .plusminus, .delete-comment{
 
 .post{
   padding: 0 30px 0 30px;
+}
+
+.center{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .well{
@@ -156,15 +164,6 @@ img{
   left: 10px;
 }
 
-.mail{
-  position: fixed;
-  color: white;
-  z-index: -1;
-  -moz-transform: rotate(270deg);
-  -moz-transform-origin: 50% 50%;
-  -webkit-transform: rotate(270deg);
-  -webkit-transform-origin: 50% 50%;
-}
 
 .box-shadow {
 -webkit-box-shadow: -2px -3px 5px rgba(0, 0, 0, 0.34);
@@ -182,10 +181,11 @@ box-shadow:         -2px -3px 5px rgba(0, 0, 0, 0.34);
 
 #login-logout{
   position: fixed;
-  top: 10px;
+  top: 50px;
   left: 50px;
-  font-size: 100px;
+  font-size: 50px;
 }
+
 
 #login-logout a{
   color: white;
@@ -193,6 +193,31 @@ box-shadow:         -2px -3px 5px rgba(0, 0, 0, 0.34);
 }
 
 #login-logout:hover a{
-  color: black;
-  
+  color: black;  
+}
+
+#books{
+  position: fixed;
+  top: 0px;
+  right: 30px;
+  float: right;
+  width: 160px;
+}
+
+.shelf{
+  z-index: 1;
+}
+
+.book-cover{
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: -15px;
+  margin-left: -10px;
+  width: 120px;
+}
+
+#books-header{
+  font-family: 'RICHARD_MILLER';
+  font-size: 30px;
+  margin-bottom: 50px;
 }
